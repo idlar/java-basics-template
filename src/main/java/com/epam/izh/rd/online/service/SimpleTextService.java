@@ -2,8 +2,6 @@ package com.epam.izh.rd.online.service;
 
 public class SimpleTextService implements TextService {
 
-    // Какие-то изменения в коде
-
     /**
      * Реализовать функционал удаления строки из другой строки.
      *
