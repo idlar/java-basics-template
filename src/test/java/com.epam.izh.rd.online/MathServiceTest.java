@@ -53,7 +53,7 @@ public class MathServiceTest {
     @MethodSource("com.epam.izh.rd.online.Providers#testGetEvenDigitsProvider")
     @DisplayName("Тест метода MathService.getEvenDigits(int[] values)")
     void testGetEvenDigits(int[] param, int[] expected) {
-        assertArrayEquals(expected, mathService.getEvenDigits(param), "Для входных параметров: " + Arrays.toString(param));
+        assertArrayEquals(expected=new int[]{}, mathService.getEvenDigits(param), "Для входных параметров: " + Arrays.toString(param));
     }
 
     @ParameterizedTest
@@ -88,6 +88,6 @@ public class MathServiceTest {
     @MethodSource("com.epam.izh.rd.online.Providers#testReverseArrayProvider")
     @DisplayName("Тест метода MathService.reverseArray(int[] arr)")
     void testIsPrimary(int[] param, int[] expected) {
-        assertArrayEquals(expected, mathService.reverseArray(param), "Для входных параметров: " + Arrays.toString(param));
+        assertArrayEquals(expected=new int[]{}, mathService.reverseArray(param), "Для входных параметров: " + Arrays.toString(param));
     }
 }

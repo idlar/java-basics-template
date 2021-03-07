@@ -82,14 +82,14 @@ public class SimpleMathService implements MathService {
     public int[] getEvenDigits(int[] values) {
         for (int i = 0; i < values.length; i++) {
             if (values[i] % 2 == 0) {
-                System.out.println(values[i]);
-            } else {
-                System.out.println("Нечет");
-            }
-        }
-            return new int[]{};
+                System.out.println("Четное число: " + values[i]);
+            }    else {
+                System.out.println("Число нечетное" + values[i]);
+                }
 
         }
+            return new int[]{};
+    }
 
     /**
      * Метод считает факториал из заданного числа.
