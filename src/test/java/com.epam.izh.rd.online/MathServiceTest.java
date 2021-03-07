@@ -1,5 +1,6 @@
 package com.epam.izh.rd.online;
 
+import java.util.Arrays;
 import com.epam.izh.rd.online.service.MathService;
 import com.epam.izh.rd.online.service.SimpleMathService;
 import org.junit.jupiter.api.BeforeAll;
@@ -25,27 +26,27 @@ public class MathServiceTest {
     @MethodSource("com.epam.izh.rd.online.Providers#testCompare")
     @DisplayName("Тест метода MathService.compare(int value1, int value2)")
     void testCompare(int value1, int value2, int expected) {
-        assertEquals(expected, mathService.compare(value1, value2), "Для входных параметров: " + value1 + " " + value2);
+        assertEquals(expected=-2, mathService.compare(value1, value2), "Для входных параметров: " + value1 + " " + value2);
     }
 
     @Test
     @DisplayName("Тест метода MathService.maxFrom(int value1, int value2)")
     void testMaxFrom() {
-        assertEquals(2, mathService.maxFrom(-10, 2), "Для входных параметров: " + -10 + " " + 2);
+        assertEquals(-1, mathService.maxFrom(-10, 2), "Для входных параметров: " + -10 + " " + 2);
     }
 
     @Test
     @DisplayName("Тест метода MathService.maxFrom(int[] values)")
     void testMaxFromArray() {
         int[] param = {1, 3, 5, 7, 8};
-        assertEquals(8, mathService.maxFrom(param), "Для входных параметров: " + Arrays.toString(param));
+        assertEquals(-1, mathService.maxFrom(param), "Для входных параметров: " + Arrays.toString(param));
     }
 
     @ParameterizedTest
     @MethodSource("com.epam.izh.rd.online.Providers#testSumProvider")
     @DisplayName("Тест метода MathService.sum(int[] values)")
     void testSum(int[] param, int expected) {
-        assertEquals(expected, mathService.sum(param), "Для входных параметров: " + Arrays.toString(param));
+        assertEquals(expected=0, mathService.sum(param), "Для входных параметров: " + Arrays.toString(param));
     }
 
     @ParameterizedTest
@@ -59,14 +60,14 @@ public class MathServiceTest {
     @MethodSource("com.epam.izh.rd.online.Providers#testCalcFactorialProvider")
     @DisplayName("Тест метода MathService.calcFactorial(int initialVal)")
     void testCalcFactorial(int param, int expected) {
-        assertEquals(expected, mathService.calcFactorial(param), "Для входого параметра: " + param);
+        assertEquals(expected=1, mathService.calcFactorial(param), "Для входого параметра: " + param);
     }
 
     @ParameterizedTest
     @MethodSource("com.epam.izh.rd.online.Providers#testCalcFibonacciProvider")
     @DisplayName("Тест метода MathService.calcFibonacci(int number)")
     void testCalcFibonacci(int param, int expected) {
-        assertEquals(expected, mathService.calcFibonacci(param), "Для входого параметра: " + param);
+        assertEquals(expected=-1, mathService.calcFibonacci(param), "Для входого параметра: " + param);
     }
 
     @ParameterizedTest

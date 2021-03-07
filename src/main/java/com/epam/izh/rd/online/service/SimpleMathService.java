@@ -1,5 +1,9 @@
 package com.epam.izh.rd.online.service;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
+import java.util.Arrays;
+
 public class SimpleMathService implements MathService {
 
     /**
@@ -13,16 +17,32 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int compare(int value1, int value2) {
+        if (value1==value2){
+            System.out.println(0);
+        } else if (value1 < value2) {
+            System.out.println(-1);
+        }   else  {
+            System.out.println(1);
+            }
         return -2;
     }
 
     /**
      * Метод возвращает максимальное число из пары.
      * Например для списка (-1, 2) метод должен вернуть 2
+     * @return
      */
     @Override
     public int maxFrom(int value1, int value2) {
+        if (value1>value2) {
+            System.out.println(value1);
+        }
+            else {
+            System.out.println(value2);
+            }
+
         return -1;
+
     }
 
     /**
@@ -31,6 +51,12 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int maxFrom(int[] values) {
+        double max=values[0];
+        for (int i = 1; i < values.length; i++) {
+            if(values[i] > max){
+                max=values[i];
+            }
+        }
         return -1;
     }
 
@@ -40,7 +66,12 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int sum(int[] values) {
-        return -1;
+        double sum=0;
+        for (int i = 0; i < values.length; i++) {
+            sum=sum+values[i];
+        }
+        System.out.println(sum);
+        return 0;
     }
 
     /**
@@ -49,8 +80,16 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int[] getEvenDigits(int[] values) {
-        return new int[]{};
-    }
+        for (int i = 0; i < values.length; i++) {
+            if (values[i] % 2 == 0) {
+                System.out.println(values[i]);
+            } else {
+                System.out.println("Нечет");
+            }
+        }
+            return new int[]{};
+
+        }
 
     /**
      * Метод считает факториал из заданного числа.
@@ -59,7 +98,15 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public long calcFactorial(int initialVal) {
-        return -1L;
+        int result=1;
+        for (int i = 0; i < initialVal; i++) {
+            if(initialVal==0){
+                System.out.println(1);
+            }
+                result=result*i;
+            System.out.println(result);
+        }
+        return 1;
     }
 
     /**
@@ -74,6 +121,18 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public long calcFibonacci(int number) {
+        int a = 1;
+        int b = 0;
+        for (int i = 0; i <= number; i++) {
+            if (i == 0) {
+                System.out.println(0);
+            }
+            int fibb = a + b;
+            a = b;
+            b = fibb;
+            System.out.println(fibb);
+        }
+
         return -1L;
     }
 
@@ -83,7 +142,11 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int[] sort(int[] values) {
-        return new int[]{};
+        Arrays.sort(values);
+        for (int i = 0; i < values.length; i++) {
+            System.out.println(values[i]);
+        }
+        return values;
     }
 
     /**
@@ -94,7 +157,12 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public boolean isPrimary(int number) {
-        return false;
+        for ( int i=2; i < number; i++) {
+            if ( number%i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -104,6 +172,9 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int[] reverseArray(int[] values) {
+        for (int i = 0; i < values.length; i++) {
+            System.out.println(values[values.length-i-1]);
+        }
         return new int[]{};
     }
 }
